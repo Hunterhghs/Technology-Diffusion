@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Diffusion in Emerging Economies</title>
+    <meta name="description" content="A comprehensive analysis of technology diffusion patterns, barriers, and breakthroughs in emerging economies worldwide.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f1729;
+            --primary-light: #1a2744;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --teal: #14b8a6;
+            --teal-light: #2dd4bf;
+            --amber: #f59e0b;
+            --rose: #f43f5e;
+            --emerald: #10b981;
+            --violet: #8b5cf6;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --surface: #1e293b;
+            --surface-light: #273548;
+            --border: rgba(148, 163, 184, 0.1);
+            --gradient-1: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            --gradient-2: linear-gradient(135deg, #14b8a6, #3b82f6);
+            --gradient-3: linear-gradient(135deg, #f59e0b, #f43f5e);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ── Typography ── */
+        h1, h2, h3, h4 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0 2rem;
+            background: rgba(15, 23, 41, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(15, 23, 41, 0.95);
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-brand {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 6rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-bg .glow-1 {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero-bg .glow-2 {
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, transparent 70%);
+            animation: pulse 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 1rem;
+            background: var(--accent-glow);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 100px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-eyebrow span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: #fff;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .hero-stat {
+            padding: 1.25rem;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-stat .number {
+            font-family: 'Source Serif 4', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .hero-stat .number .unit {
+            font-size: 1rem;
+            color: var(--accent-light);
+        }
+
+        .hero-stat .desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Section Commons ── */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            max-width: 680px;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            color: #fff;
+            margin-top: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .section-divider {
+            width: 48px;
+            height: 3px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+            margin-bottom: 4rem;
+        }
+
+        /* ── Theory Section ── */
+        .theory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .theory-card {
+            padding: 2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theory-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .theory-card:hover::before { opacity: 1; }
+        .theory-card:hover { border-color: rgba(59, 130, 246, 0.3); transform: translateY(-2px); }
+
+        .theory-card .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .theory-card h3 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .theory-card .author {
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .theory-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ── Adoption Timeline ── */
+        .adoption-bg {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-visual {
+            margin-top: 3rem;
+        }
+
+        .timeline-chart {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 80px;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-row .tech-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        .timeline-bar-track {
+            height: 36px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-bar {
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0;
+        }
+
+        .timeline-bar.animated { width: var(--target-width); }
+
+        .timeline-row .year-label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .timeline-legend {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* ── Regional Deep-Dive ── */
+        .region-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .region-tab {
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .region-tab:hover { border-color: rgba(59, 130, 246, 0.3); color: var(--text); }
+        .region-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .region-content {
+            display: none;
+        }
+
+        .region-content.active { display: block; }
+
+        .region-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .region-narrative {
+            padding: 2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .region-narrative h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .region-narrative .subtitle {
+            font-size: 0.9rem;
+            color: var(--accent-light);
+            margin-bottom: 1.25rem;
+        }
+
+        .region-narrative p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .region-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .metric-card {
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .metric-card .value {
+            font-family: 'Source Serif 4', serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric-card .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .metric-card .metric-trend {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .trend-up { color: var(--emerald); }
+        .trend-caution { color: var(--amber); }
+
+        /* ── Case Studies ── */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .case-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .case-card:hover { border-color: rgba(59, 130, 246, 0.3); transform: translateY(-2px); }
+
+        .case-card-header {
+            padding: 2rem 2rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .case-card-flag {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .case-card-title h3 {
+            font-size: 1.3rem;
+            color: #fff;
+        }
+
+        .case-card-title .location {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .case-card-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .case-card-body p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .case-stats {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .case-stat .case-stat-value {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .case-stat .case-stat-label {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Barriers Section ── */
+        .barriers-bg {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .barriers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .barrier-card {
+            padding: 2rem;
+            background: var(--primary-light);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .barrier-card .barrier-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .barrier-card h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .barrier-card p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .barrier-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .barrier-stat .num {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--amber);
+        }
+
+        .barrier-stat .context {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* ── Progress Bars ── */
+        .progress-section {
+            margin-top: 3rem;
+        }
+
+        .progress-row {
+            margin-bottom: 1.25rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .progress-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+
+        .progress-track {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0;
+        }
+
+        .progress-fill.animated { width: var(--target-width); }
+
+        /* ── AI & Future Section ── */
+        .future-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .future-panel {
+            padding: 2.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .future-panel h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .future-panel .lead {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .future-list {
+            list-style: none;
+        }
+
+        .future-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .future-list li:last-child { border-bottom: none; }
+
+        .future-list .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+
+        .ai-divide-chart {
+            margin-top: 2rem;
+        }
+
+        .divide-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .divide-label {
+            width: 120px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .divide-bar-track {
+            flex: 1;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .divide-bar {
+            height: 100%;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding-left: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0;
+        }
+
+        .divide-bar.animated { width: var(--target-width); }
+
+        /* ── Renewable Energy Section ── */
+        .energy-highlight {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .energy-narrative {
+            padding: 2.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .energy-narrative h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .energy-narrative p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .energy-stats-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .energy-stat-card {
+            flex: 1;
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .energy-stat-card .big-num {
+            font-family: 'Source Serif 4', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .energy-stat-card .big-num .highlight {
+            color: var(--teal);
+        }
+
+        .energy-stat-card .desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* ── Knowledge Flows ── */
+        .knowledge-flow {
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .knowledge-flow h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .flow-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .flow-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-light);
+            border-radius: 12px;
+        }
+
+        .flow-item .country {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-item .years {
+            font-family: 'Source Serif 4', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .flow-item .years .yr-unit {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+        }
+
+        .flow-item .explanation {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 0.5rem;
+        }
+
+        /* ── Sources ── */
+        .sources-section {
+            border-top: 1px solid var(--border);
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .source-item {
+            padding: 1rem 1.25rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: border-color 0.2s;
+        }
+
+        .source-item:hover { border-color: rgba(59, 130, 246, 0.3); }
+
+        .source-item a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        .source-item a:hover { text-decoration: underline; }
+
+        .source-item .source-org {
+            font-weight: 600;
+            color: var(--text);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        /* ── Scroll Reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .region-layout { grid-template-columns: 1fr; }
+            .future-grid { grid-template-columns: 1fr; }
+            .energy-highlight { grid-template-columns: 1fr; }
+            .flow-comparison { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 4rem 1.25rem; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 41, 0.98);
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid var(--border);
+                gap: 1rem;
+            }
+            .nav-mobile-toggle { display: block; }
+            .hero { padding: 7rem 1.25rem 4rem; }
+            .hero-stats { grid-template-columns: 1fr 1fr; }
+            .timeline-row { grid-template-columns: 120px 1fr 60px; gap: 0.75rem; }
+            .timeline-row .tech-name { font-size: 0.75rem; }
+            .case-studies-grid { grid-template-columns: 1fr; }
+            .region-metrics { grid-template-columns: 1fr; }
+            .barriers-grid { grid-template-columns: 1fr; }
+            .theory-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats { grid-template-columns: 1fr; }
+        }
+
+        /* ── Utility ── */
+        .bg-accent-subtle { background: rgba(59, 130, 246, 0.1); }
+        .bg-teal-subtle { background: rgba(20, 184, 166, 0.1); }
+        .bg-amber-subtle { background: rgba(245, 158, 11, 0.1); }
+        .bg-rose-subtle { background: rgba(244, 63, 94, 0.1); }
+        .bg-emerald-subtle { background: rgba(16, 185, 129, 0.1); }
+        .bg-violet-subtle { background: rgba(139, 92, 246, 0.1); }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#" class="nav-brand">Tech Diffusion</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#frameworks">Frameworks</a></li>
+            <li><a href="#adoption">Adoption</a></li>
+            <li><a href="#regions">Regions</a></li>
+            <li><a href="#cases">Case Studies</a></li>
+            <li><a href="#barriers">Barriers</a></li>
+            <li><a href="#future">Future</a></li>
+            <li><a href="#sources">Sources</a></li>
+        </ul>
+        <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle navigation">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+    </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+    <div class="hero-bg">
+        <div class="grid-pattern"></div>
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-eyebrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span>Research Briefing &mdash; 2026</span>
+        </div>
+        <h1>Technology Diffusion in <span class="gradient-text">Emerging Economies</span></h1>
+        <p class="hero-subtitle">How developing nations adopt, adapt, and leapfrog technological paradigms &mdash; reshaping global innovation flows and closing the digital divide.</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="number">74<span class="unit">%</span></div>
+                <div class="desc">Global internet penetration, 2025</div>
+            </div>
+            <div class="hero-stat">
+                <div class="number">800<span class="unit"> GW</span></div>
+                <div class="desc">Renewable capacity added globally, 2025</div>
+            </div>
+            <div class="hero-stat">
+                <div class="number">228<span class="unit">B</span></div>
+                <div class="desc">UPI transactions in India, 2025</div>
+            </div>
+            <div class="hero-stat">
+                <div class="number">40<span class="unit">%+</span></div>
+                <div class="desc">ChatGPT traffic from middle-income nations</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ THEORETICAL FRAMEWORKS ═══════════ -->
+<section id="frameworks">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <span class="label">Theoretical Foundations</span>
+            <h2>How Technology Spreads</h2>
+            <p>Decades of research have produced frameworks that explain why some technologies diffuse rapidly while others stall &mdash; and why geography, institutions, and timing matter as much as the technology itself.</p>
+        </div>
+        <div class="theory-grid">
+            <div class="theory-card reveal">
+                <div class="icon bg-accent-subtle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Diffusion of Innovations</h3>
+                <div class="author">Everett Rogers, 1962</div>
+                <p>Adoption follows an S-curve across five adopter categories: innovators, early adopters, early majority, late majority, and laggards. Relative advantage, compatibility, complexity, trialability, and observability determine adoption speed. In emerging economies, the early-adopter phase is often compressed when technologies arrive pre-validated from advanced markets.</p>
+            </div>
+            <div class="theory-card reveal">
+                <div class="icon bg-teal-subtle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3>Technological Leapfrogging</h3>
+                <div class="author">Various, 1990s&ndash;Present</div>
+                <p>Latecomers bypass intermediate stages of development entirely. Sub-Saharan Africa skipped fixed-line telephony for mobile; Kenya built a mobile payments ecosystem before most of its population had bank accounts. Leapfrogging is most pronounced when legacy infrastructure is absent and switching costs are low.</p>
+            </div>
+            <div class="theory-card reveal">
+                <div class="icon bg-amber-subtle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                </div>
+                <h3>Advantage of Backwardness</h3>
+                <div class="author">Alexander Gerschenkron, 1962</div>
+                <p>Less-developed economies can grow faster by importing and adapting proven technologies rather than inventing from scratch. The larger the gap with the frontier, the greater the potential catch-up rate &mdash; provided institutions, human capital, and absorptive capacity are sufficient to exploit imported knowledge.</p>
+            </div>
+            <div class="theory-card reveal">
+                <div class="icon bg-violet-subtle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <h3>Absorptive Capacity</h3>
+                <div class="author">Cohen &amp; Levinthal, 1990</div>
+                <p>A nation's ability to recognize, assimilate, and apply external knowledge depends on its existing knowledge base. R&amp;D investment, educational attainment, and institutional quality determine whether imported technology becomes productive or remains unused. India's 11-year reinvention lag vs. the U.S.'s 3 years illustrates this gap.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ ADOPTION TIMELINE ═══════════ -->
+<section id="adoption" class="adoption-bg">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <span class="label">Historical Patterns</span>
+            <h2>The Convergence of Adoption Lags</h2>
+            <p>Advanced economies historically adopt technologies 20&ndash;80 years before the global average, while Africa trails by 10&ndash;50+ years. But new technologies are narrowing this gap dramatically.</p>
+        </div>
+        <div class="timeline-visual reveal">
+            <div class="timeline-chart" id="timelineChart">
+                <div class="timeline-row">
+                    <div class="tech-name">Electricity</div>
+                    <div class="timeline-bar-track">
+                        <div class="timeline-bar" style="--target-width: 85%; background: linear-gradient(90deg, var(--accent), var(--violet));">~80 yrs</div>
+                    </div>
+                    <div class="year-label">1882</div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tech-name">Telephone</div>
+                    <div class="timeline-bar-track">
+                        <div class="timeline-bar" style="--target-width: 70%; background: linear-gradient(90deg, var(--accent), var(--violet));">~60 yrs</div>
+                    </div>
+                    <div class="year-label">1876</div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tech-name">Television</div>
+                    <div class="timeline-bar-track">
+                        <div class="timeline-bar" style="--target-width: 50%; background: linear-gradient(90deg, var(--teal), var(--accent));">~40 yrs</div>
+                    </div>
+                    <div class="year-label">1927</div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tech-name">Personal Computer</div>
+                    <div class="timeline-bar-track">
+                        <div class="timeline-bar" style="--target-width: 35%; background: linear-gradient(90deg, var(--teal), var(--accent));">~25 yrs</div>
+                    </div>
+                    <div class="year-label">1981</div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tech-name">Mobile Phone</div>
+                    <div class="timeline-bar-track">
+                        <div class="timeline-bar" style="--target-width: 22%; background: linear-gradient(90deg, var(--emerald), var(--teal));">~15 yrs</div>
+                    </div>
+                    <div class="year-label">1983</div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tech-name">Internet</div>
+                    <div class="timeline-bar-track">
+                        <div class="timeline-bar" style="--target-width: 16%; background: linear-gradient(90deg, var(--emerald), var(--teal));">~10 yrs</div>
+                    </div>
+                    <div class="year-label">1991</div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tech-name">Smartphone</div>
+                    <div class="timeline-bar-track">
+                        <div class="timeline-bar" style="--target-width: 10%; background: linear-gradient(90deg, var(--amber), var(--emerald));">~5 yrs</div>
+                    </div>
+                    <div class="year-label">2007</div>
+                </div>
+                <div class="timeline-row">
+                    <div class="tech-name">Generative AI</div>
+                    <div class="timeline-bar-track">
+                        <div class="timeline-bar" style="--target-width: 5%; background: linear-gradient(90deg, var(--rose), var(--amber));">&lt;2 yrs</div>
+                    </div>
+                    <div class="year-label">2022</div>
+                </div>
+            </div>
+            <div class="timeline-legend">
+                <div class="timeline-legend-item">
+                    <div class="timeline-legend-dot" style="background: var(--violet);"></div>
+                    Longer adoption lag (decades)
+                </div>
+                <div class="timeline-legend-item">
+                    <div class="timeline-legend-dot" style="background: var(--teal);"></div>
+                    Moderate lag
+                </div>
+                <div class="timeline-legend-item">
+                    <div class="timeline-legend-dot" style="background: var(--emerald);"></div>
+                    Near-simultaneous adoption
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ REGIONAL DEEP-DIVE ═══════════ -->
+<section id="regions">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <span class="label">Regional Analysis</span>
+            <h2>Divergent Paths, Converging Ambitions</h2>
+            <p>Emerging economies are not a monolith. Each region brings unique strengths, constraints, and adoption trajectories shaped by demographics, governance, and infrastructure.</p>
+        </div>
+
+        <div class="region-tabs reveal" role="tablist">
+            <button class="region-tab active" data-region="subsaharan" role="tab">Sub-Saharan Africa</button>
+            <button class="region-tab" data-region="southasia" role="tab">South Asia</button>
+            <button class="region-tab" data-region="seasia" role="tab">Southeast Asia</button>
+            <button class="region-tab" data-region="latam" role="tab">Latin America</button>
+            <button class="region-tab" data-region="mena" role="tab">MENA</button>
+        </div>
+
+        <!-- Sub-Saharan Africa -->
+        <div class="region-content active" data-region="subsaharan">
+            <div class="region-layout">
+                <div class="region-narrative">
+                    <h3>Sub-Saharan Africa</h3>
+                    <div class="subtitle">Leapfrog Innovation Hub</div>
+                    <p>The region that best illustrates technological leapfrogging. With only 36% internet penetration, Sub-Saharan Africa might appear a laggard &mdash; but it leads the world in mobile money adoption, with M-Pesa and its successors processing billions in transactions across a population that largely bypassed traditional banking.</p>
+                    <p>Renewable energy capacity doubled in 2025, reaching 12 GW of new installations. South Africa alone installed over 3 GW of solar PV for the first time. Rwanda's national drone delivery network for medical supplies has become a global model for last-mile logistics in infrastructure-constrained environments.</p>
+                    <p>The primary constraint remains connectivity: only 12% of Africans have access to 5G networks (vs. 74% in Europe), and Middle Africa's internet penetration sits at approximately 25%. Yet mobile phone access reaches 65&ndash;70% of the population, providing a platform for the next wave of digital services.</p>
+                </div>
+                <div class="region-metrics">
+                    <div class="metric-card">
+                        <div class="value">36%</div>
+                        <div class="metric-label">Internet Penetration</div>
+                        <div class="metric-trend trend-caution">Lowest region globally</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">12 GW</div>
+                        <div class="metric-label">Renewable Additions, 2025</div>
+                        <div class="metric-trend trend-up">2x year-over-year</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">70%</div>
+                        <div class="metric-label">Mobile Phone Access</div>
+                        <div class="metric-trend trend-up">Including shared access</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">12%</div>
+                        <div class="metric-label">5G Coverage</div>
+                        <div class="metric-trend trend-caution">vs. 74% in Europe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- South Asia -->
+        <div class="region-content" data-region="southasia">
+            <div class="region-layout">
+                <div class="region-narrative">
+                    <h3>South Asia</h3>
+                    <div class="subtitle">Scale-Driven Digital Transformation</div>
+                    <p>India dominates the region's technology narrative. UPI processed 228.3 billion transactions in 2025, making it the world's largest real-time payment system. Internet penetration surged to 70%, up from under 40% a decade ago. India's annual renewable capacity additions grew by nearly 60% in 2025, with almost 50 GW of solar PV commissioned.</p>
+                    <p>AI adoption is accelerating, with 35% adoption rates and India ranking among the top generators of ChatGPT traffic globally. The country's AADHAAR biometric identity system, covering 1.3 billion residents, provides digital infrastructure for financial inclusion, welfare distribution, and e-governance at a scale no other country has achieved.</p>
+                    <p>Yet South Asia still has the largest absolute number of unconnected people &mdash; roughly 747 million as of late 2025. Pakistan is an emerging bright spot, installing around 10 GW of solar PV in 2025, while Bangladesh's garment-sector digitization and Sri Lanka's IT services exports show varied pathways to technology adoption.</p>
+                </div>
+                <div class="region-metrics">
+                    <div class="metric-card">
+                        <div class="value">70%</div>
+                        <div class="metric-label">India Internet Penetration</div>
+                        <div class="metric-trend trend-up">Rapid surge from ~40%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">228B</div>
+                        <div class="metric-label">UPI Transactions, 2025</div>
+                        <div class="metric-trend trend-up">500M+ unique users</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">50 GW</div>
+                        <div class="metric-label">India Solar PV, 2025</div>
+                        <div class="metric-trend trend-up">+60% year-over-year</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">747M</div>
+                        <div class="metric-label">Unconnected People</div>
+                        <div class="metric-trend trend-caution">Largest gap globally</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Southeast Asia -->
+        <div class="region-content" data-region="seasia">
+            <div class="region-layout">
+                <div class="region-narrative">
+                    <h3>Southeast Asia</h3>
+                    <div class="subtitle">The Super-App Ecosystem</div>
+                    <p>Southeast Asia's technology diffusion is defined by the super-app model &mdash; platforms like Grab, GoTo, and Sea Group that bundle payments, e-commerce, ride-hailing, and financial services into a single mobile interface. This bundling strategy drives rapid adoption by reducing friction for first-time digital users.</p>
+                    <p>AI adoption is surging. Between 2024 and 2025, nearly 130,000 companies in the Philippines and Vietnam began using AI tools, with adoption rates jumping 50% in the Philippines and 39% in Vietnam. Thailand's AI usage grew 36.2% in early 2026, among the fastest rates globally.</p>
+                    <p>The region's young, mobile-first population and rapidly growing middle class create favorable conditions for technology adoption. Indonesia's digital economy alone is projected to be the largest in ASEAN, with digital payments expanding at a 34.24% CAGR across Asia-Pacific, driven in part by the region's super-app ecosystems.</p>
+                </div>
+                <div class="region-metrics">
+                    <div class="metric-card">
+                        <div class="value">130K</div>
+                        <div class="metric-label">New AI-Using Firms</div>
+                        <div class="metric-trend trend-up">Philippines + Vietnam, 2024&ndash;25</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">50%</div>
+                        <div class="metric-label">Philippines AI Adoption Growth</div>
+                        <div class="metric-trend trend-up">Year-over-year</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">36%</div>
+                        <div class="metric-label">Thailand AI Growth, Q1 2026</div>
+                        <div class="metric-trend trend-up">Among fastest globally</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">34%</div>
+                        <div class="metric-label">Digital Payments CAGR</div>
+                        <div class="metric-trend trend-up">Asia-Pacific region</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latin America -->
+        <div class="region-content" data-region="latam">
+            <div class="region-layout">
+                <div class="region-narrative">
+                    <h3>Latin America</h3>
+                    <div class="subtitle">Fintech Revolution &amp; Digital Government</div>
+                    <p>Latin America's technology diffusion story centers on fintech and digital financial inclusion. Brazil's Pix instant payment system, launched in 2020, now processes more transactions per capita than India's UPI, transforming a country where 45 million adults were previously unbanked. Mexico's AI adoption rate has reached 38%, the highest in the region.</p>
+                    <p>Brazil leads as one of the world's largest generators of ChatGPT traffic from middle-income countries, reflecting broad consumer AI adoption. Chile and Uruguay have emerged as regional leaders in renewable energy, with Chile's solar capacity in the Atacama Desert making it competitive with global leaders on a per-capita basis.</p>
+                    <p>Challenges remain in infrastructure equity: rural broadband access lags significantly behind urban centers, and the region's relatively high smartphone costs (as a share of income) create barriers to participation in the digital economy. Regulatory fragmentation across countries complicates cross-border digital service expansion.</p>
+                </div>
+                <div class="region-metrics">
+                    <div class="metric-card">
+                        <div class="value">38%</div>
+                        <div class="metric-label">Mexico AI Adoption Rate</div>
+                        <div class="metric-trend trend-up">Regional leader</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">Pix</div>
+                        <div class="metric-label">Brazil Instant Payments</div>
+                        <div class="metric-trend trend-up">Higher per-capita than UPI</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">35%</div>
+                        <div class="metric-label">India AI Adoption Rate</div>
+                        <div class="metric-trend trend-up">Comparable trajectory</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">45M</div>
+                        <div class="metric-label">Brazilians Previously Unbanked</div>
+                        <div class="metric-trend trend-up">Now digitally included</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENA -->
+        <div class="region-content" data-region="mena">
+            <div class="region-layout">
+                <div class="region-narrative">
+                    <h3>Middle East &amp; North Africa</h3>
+                    <div class="subtitle">State-Led Digitization &amp; Energy Transition</div>
+                    <p>The MENA region presents a bifurcated technology landscape. Gulf states &mdash; particularly the UAE, Saudi Arabia, and Qatar &mdash; pursue top-down digital transformation backed by sovereign wealth, investing heavily in AI infrastructure, smart cities (NEOM, Masdar), and advanced logistics. The UAE ranks among the highest in the world for government digitization.</p>
+                    <p>North African economies like Egypt and Morocco are emerging as near-shore tech hubs for European companies, leveraging geographic proximity, competitive labor costs, and improving digital infrastructure. Egypt's fintech sector has grown rapidly, while Morocco is becoming a renewable energy leader with its Noor-Ouarzazate solar complex.</p>
+                    <p>The region's technology diffusion is heavily influenced by state policy rather than organic market forces. While this enables rapid deployment of infrastructure, it can limit grassroots innovation and startup ecosystems outside of designated economic zones.</p>
+                </div>
+                <div class="region-metrics">
+                    <div class="metric-card">
+                        <div class="value">UAE</div>
+                        <div class="metric-label">Gov't Digitization Leader</div>
+                        <div class="metric-trend trend-up">Top global rankings</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">NEOM</div>
+                        <div class="metric-label">$500B Smart City</div>
+                        <div class="metric-trend trend-caution">State-led megaproject</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">Noor</div>
+                        <div class="metric-label">World's Largest CSP Complex</div>
+                        <div class="metric-trend trend-up">Morocco, 580 MW</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="value">Egypt</div>
+                        <div class="metric-label">Rising Fintech Hub</div>
+                        <div class="metric-trend trend-up">Near-shore for Europe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ CASE STUDIES ═══════════ -->
+<section id="cases" class="adoption-bg">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <span class="label">Case Studies</span>
+            <h2>Breakthroughs That Redefined the Possible</h2>
+            <p>These cases demonstrate how emerging economies have not merely adopted technology, but reimagined it to serve populations and contexts that advanced-economy solutions were never designed for.</p>
+        </div>
+        <div class="case-studies-grid">
+            <div class="case-card reveal">
+                <div class="case-card-header">
+                    <div class="case-card-flag">&#127472;&#127466;</div>
+                    <div class="case-card-title">
+                        <h3>M-Pesa</h3>
+                        <div class="location">Kenya &rarr; 7 countries &bull; Launched 2007</div>
+                    </div>
+                </div>
+                <div class="case-card-body">
+                    <p>Safaricom's M-Pesa demonstrated that financial inclusion doesn't require bank branches. Using simple SMS on feature phones, it allowed unbanked Kenyans to send, receive, and store money. It now has over 90% penetration in Kenya and has expanded across Africa and into Asia, processing billions of dollars annually and spawning an ecosystem of services from micro-insurance to agricultural credit.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <div class="case-stat-value">90%+</div>
+                            <div class="case-stat-label">Kenya Penetration</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">7</div>
+                            <div class="case-stat-label">Countries</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">SMS</div>
+                            <div class="case-stat-label">Base Technology</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card reveal">
+                <div class="case-card-header">
+                    <div class="case-card-flag">&#127470;&#127475;</div>
+                    <div class="case-card-title">
+                        <h3>Unified Payments Interface</h3>
+                        <div class="location">India &bull; Launched 2016</div>
+                    </div>
+                </div>
+                <div class="case-card-body">
+                    <p>Built as public digital infrastructure by India's National Payments Corporation, UPI is an open, interoperable platform enabling instant bank-to-bank transfers via mobile phones with zero fees for individuals. It processed 228.3 billion transactions in 2025, now accounts for 84% of all electronic transactions in India, and has over 500 million unique users. UPI accounts for 55% of all e-commerce payments and represents the world's most successful public digital payments infrastructure.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <div class="case-stat-value">228B</div>
+                            <div class="case-stat-label">Transactions, 2025</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">500M+</div>
+                            <div class="case-stat-label">Unique Users</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">84%</div>
+                            <div class="case-stat-label">Share of Digital Txns</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card reveal">
+                <div class="case-card-header">
+                    <div class="case-card-flag">&#127479;&#127484;</div>
+                    <div class="case-card-title">
+                        <h3>Zipline Drone Delivery</h3>
+                        <div class="location">Rwanda &rarr; Global &bull; Launched 2016</div>
+                    </div>
+                </div>
+                <div class="case-card-body">
+                    <p>Rwanda became the first country to deploy a national drone delivery network for medical supplies. Zipline's autonomous aircraft deliver blood, vaccines, and medications to remote health centers in under 30 minutes &mdash; a journey that previously took hours by road. The system has since expanded to Ghana, Nigeria, Kenya, and the U.S., demonstrating that frontier technology can be deployed first in emerging markets where the need is greatest.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <div class="case-stat-value">&lt;30</div>
+                            <div class="case-stat-label">Minutes Delivery</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">1st</div>
+                            <div class="case-stat-label">National Drone Network</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">5+</div>
+                            <div class="case-stat-label">Countries Now</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card reveal">
+                <div class="case-card-header">
+                    <div class="case-card-flag">&#127464;&#127475;</div>
+                    <div class="case-card-title">
+                        <h3>China's Solar Manufacturing</h3>
+                        <div class="location">China &bull; 2000s&ndash;Present</div>
+                    </div>
+                </div>
+                <div class="case-card-body">
+                    <p>China transformed from a solar technology importer to the dominant global manufacturer, now producing over 80% of the world's solar panels. This scale-driven cost reduction &mdash; solar module prices fell over 90% in 15 years &mdash; made solar energy economically viable for developing countries worldwide. In 2025, solar PV accounted for more than three-quarters of all new global renewable capacity, a trajectory enabled largely by China's industrial policy and manufacturing scale.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <div class="case-stat-value">80%+</div>
+                            <div class="case-stat-label">Global Panel Production</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">-90%</div>
+                            <div class="case-stat-label">Module Cost Drop</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">75%</div>
+                            <div class="case-stat-label">Of New Renewables</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ BARRIERS ═══════════ -->
+<section id="barriers" class="barriers-bg">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <span class="label">Barriers &amp; Challenges</span>
+            <h2>What Slows Technology Diffusion</h2>
+            <p>Understanding the structural constraints that impede adoption is essential for designing effective policy interventions and investment strategies.</p>
+        </div>
+        <div class="barriers-grid">
+            <div class="barrier-card reveal">
+                <div class="barrier-icon bg-rose-subtle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Infrastructure Deficit</h3>
+                <p>Unreliable electricity, limited broadband backbone, and sparse last-mile connectivity remain fundamental constraints. Without stable power and basic connectivity, even proven technologies cannot function.</p>
+                <div class="barrier-stat">
+                    <div class="num">12%</div>
+                    <div class="context">of Africa has 5G access (vs. 74% in Europe)</div>
+                </div>
+            </div>
+            <div class="barrier-card reveal">
+                <div class="barrier-icon bg-amber-subtle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Human Capital Gaps</h3>
+                <p>Technical skills shortages, low digital literacy, and brain drain to advanced economies limit absorptive capacity. Without skilled workers to implement, maintain, and adapt technologies, hardware investments underperform.</p>
+                <div class="barrier-stat">
+                    <div class="num">11 yrs</div>
+                    <div class="context">India's reinvention lag vs. 3 years for the U.S.</div>
+                </div>
+            </div>
+            <div class="barrier-card reveal">
+                <div class="barrier-icon bg-violet-subtle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h3>Financing Constraints</h3>
+                <p>High cost of capital, limited access to venture funding, and currency risk deter technology investment. Emerging-market startups face funding environments orders of magnitude smaller than Silicon Valley or Shenzhen.</p>
+                <div class="barrier-stat">
+                    <div class="num">2x</div>
+                    <div class="context">faster AI adoption growth in Global North vs. South</div>
+                </div>
+            </div>
+            <div class="barrier-card reveal">
+                <div class="barrier-icon bg-teal-subtle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                </div>
+                <h3>Regulatory &amp; Institutional Friction</h3>
+                <p>Weak IP protection, complex licensing regimes, data localization mandates, and political instability create uncertainty. Cross-border regulatory fragmentation complicates regional technology platforms and slows standardization.</p>
+                <div class="barrier-stat">
+                    <div class="num">GDP</div>
+                    <div class="context">Strong positive correlation between GDP per capita and internet adoption</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Internet Penetration by Region -->
+        <div class="progress-section reveal">
+            <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 1.5rem;">Internet Penetration by Region, 2025</h3>
+            <div class="progress-row">
+                <div class="progress-header">
+                    <span class="progress-label">Europe</span>
+                    <span class="progress-value">92%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="--target-width: 92%; background: var(--gradient-1);"></div>
+                </div>
+            </div>
+            <div class="progress-row">
+                <div class="progress-header">
+                    <span class="progress-label">East Asia</span>
+                    <span class="progress-value">91.6%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="--target-width: 91.6%; background: var(--gradient-1);"></div>
+                </div>
+            </div>
+            <div class="progress-row">
+                <div class="progress-header">
+                    <span class="progress-label">Global Average</span>
+                    <span class="progress-value">74%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="--target-width: 74%; background: var(--gradient-2);"></div>
+                </div>
+            </div>
+            <div class="progress-row">
+                <div class="progress-header">
+                    <span class="progress-label">India</span>
+                    <span class="progress-value">70%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="--target-width: 70%; background: var(--gradient-2);"></div>
+                </div>
+            </div>
+            <div class="progress-row">
+                <div class="progress-header">
+                    <span class="progress-label">Southern Africa</span>
+                    <span class="progress-value">68%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="--target-width: 68%; background: var(--gradient-2);"></div>
+                </div>
+            </div>
+            <div class="progress-row">
+                <div class="progress-header">
+                    <span class="progress-label">Sub-Saharan Africa</span>
+                    <span class="progress-value">36%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="--target-width: 36%; background: var(--gradient-3);"></div>
+                </div>
+            </div>
+            <div class="progress-row">
+                <div class="progress-header">
+                    <span class="progress-label">Middle Africa</span>
+                    <span class="progress-value">25%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="--target-width: 25%; background: var(--gradient-3);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ RENEWABLE ENERGY ═══════════ -->
+<section id="energy">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <span class="label">Green Technology Transfer</span>
+            <h2>The Renewable Energy Surge</h2>
+            <p>Falling costs &mdash; driven largely by China's manufacturing scale &mdash; have made solar and wind economically competitive in emerging markets, triggering an unprecedented wave of clean energy deployment.</p>
+        </div>
+        <div class="energy-highlight reveal">
+            <div class="energy-narrative">
+                <h3>2025: A Record Year for Emerging Markets</h3>
+                <p>Global renewable capacity additions reached 800 GW in 2025, a 16% increase. Solar PV accounted for more than three-quarters of all additions. Critically, the growth story is no longer limited to China: India's renewable additions grew by nearly 60%, with almost 50 GW of solar PV commissioned. Sub-Saharan Africa doubled its renewable capacity, reaching 12 GW of new installations.</p>
+                <p>Pakistan installed approximately 10 GW of solar PV, emerging as a significant market. Wind additions are accelerating across Africa, the Middle East, ASEAN, Latin America, and Eurasia as policy frameworks improve and costs continue to decline.</p>
+                <p>This transformation demonstrates a key dynamic of technology diffusion in emerging economies: once enabling conditions align &mdash; cost competitiveness, policy support, and proven technology &mdash; adoption can accelerate rapidly, often outpacing projections from just a few years prior.</p>
+            </div>
+            <div class="energy-stats-col">
+                <div class="energy-stat-card">
+                    <div class="big-num">800 <span class="highlight">GW</span></div>
+                    <div class="desc">Global renewable additions, 2025 (+16% YoY)</div>
+                </div>
+                <div class="energy-stat-card">
+                    <div class="big-num">~60<span class="highlight">%</span></div>
+                    <div class="desc">Growth in India's renewable additions</div>
+                </div>
+                <div class="energy-stat-card">
+                    <div class="big-num">2<span class="highlight">x</span></div>
+                    <div class="desc">Sub-Saharan Africa renewable capacity doubled</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ AI & FUTURE ═══════════ -->
+<section id="future" class="adoption-bg">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <span class="label">Future Outlook</span>
+            <h2>Artificial Intelligence &amp; the Next Frontier</h2>
+            <p>AI represents both the greatest opportunity and the greatest risk for emerging economies &mdash; a technology that could accelerate convergence or deepen the divide.</p>
+        </div>
+
+        <div class="future-grid">
+            <div class="future-panel reveal">
+                <h3>The Promise</h3>
+                <div class="lead">AI adoption is spreading faster than any previous general-purpose technology, with middle-income countries already generating over 40% of global GenAI traffic.</div>
+                <ul class="future-list">
+                    <li>
+                        <div class="dot" style="background: var(--emerald);"></div>
+                        <div><strong>Rapid uptake:</strong> AI adoption reached 38% in Mexico, 35% in India, and 28% in Indonesia. Asia accounts for 10 of the world's 15 fastest-growing AI markets.</div>
+                    </li>
+                    <li>
+                        <div class="dot" style="background: var(--emerald);"></div>
+                        <div><strong>Enterprise expansion:</strong> 130,000 companies in the Philippines and Vietnam began using AI between 2024&ndash;2025. South Korea's usage surged 43.2%.</div>
+                    </li>
+                    <li>
+                        <div class="dot" style="background: var(--emerald);"></div>
+                        <div><strong>Sector impact:</strong> Precision agriculture, digital health diagnostics, climate modeling, and automated customer service are high-impact applications for emerging markets.</div>
+                    </li>
+                    <li>
+                        <div class="dot" style="background: var(--emerald);"></div>
+                        <div><strong>Language access:</strong> Multilingual LLMs are democratizing access to information and services in local languages for the first time.</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="future-panel reveal">
+                <h3>The Peril</h3>
+                <div class="lead">Despite rapid adoption, the AI divide is widening. Infrastructure, data, and compute constraints threaten to concentrate AI's benefits in already-advanced economies.</div>
+                <ul class="future-list">
+                    <li>
+                        <div class="dot" style="background: var(--rose);"></div>
+                        <div><strong>Widening gap:</strong> AI adoption in the Global North grew nearly 2x faster than in the Global South. 24.7% of working-age population in the North uses AI tools vs. 14.1% in the South.</div>
+                    </li>
+                    <li>
+                        <div class="dot" style="background: var(--rose);"></div>
+                        <div><strong>Compute concentration:</strong> Training frontier AI models requires infrastructure that only a handful of countries possess. This creates structural dependency on external providers.</div>
+                    </li>
+                    <li>
+                        <div class="dot" style="background: var(--rose);"></div>
+                        <div><strong>Data sovereignty:</strong> Much of the training data for commercial AI is generated in and optimized for advanced-economy contexts, potentially limiting relevance for local needs.</div>
+                    </li>
+                    <li>
+                        <div class="dot" style="background: var(--rose);"></div>
+                        <div><strong>Labor disruption:</strong> AI-driven automation may reduce the cost advantage of emerging-market labor, potentially undermining the traditional development pathway of export-led manufacturing.</div>
+                    </li>
+                </ul>
+
+                <div class="ai-divide-chart">
+                    <h4 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">AI Usage: Global North vs. South</h4>
+                    <div class="divide-row">
+                        <div class="divide-label">Global North</div>
+                        <div class="divide-bar-track">
+                            <div class="divide-bar" style="--target-width: 82%; background: var(--gradient-1);">24.7%</div>
+                        </div>
+                    </div>
+                    <div class="divide-row">
+                        <div class="divide-label">Global South</div>
+                        <div class="divide-bar-track">
+                            <div class="divide-bar" style="--target-width: 47%; background: var(--gradient-3);">14.1%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Knowledge Flows -->
+        <div class="knowledge-flow reveal">
+            <h3>Knowledge Reinvention Lag</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">A critical measure of absorptive capacity: how long it takes a country to build on its own innovations versus adopting external breakthroughs. The gap reflects differences in R&amp;D ecosystems, institutional support, and human capital depth.</p>
+            <div class="flow-comparison">
+                <div class="flow-item">
+                    <div class="country">United States</div>
+                    <div class="years">3 <span class="yr-unit">years</span></div>
+                    <div class="explanation">Average time to reinvent based on domestic innovation</div>
+                </div>
+                <div class="flow-item">
+                    <div class="country">India</div>
+                    <div class="years">11 <span class="yr-unit">years</span></div>
+                    <div class="explanation">Average time to reinvent based on domestic innovation</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ SOURCES ═══════════ -->
+<section id="sources" class="sources-section">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <span class="label">Sources &amp; References</span>
+            <h2>Data Sources</h2>
+            <p>This analysis draws on data and research from the following institutions and reports.</p>
+        </div>
+        <div class="sources-grid reveal">
+            <div class="source-item">
+                <span class="source-org">WIPO</span>
+                <a href="https://www.wipo.int/web-publications/world-intellectual-property-report-2026/en/1-how-do-new-technologies-diffuse.html" target="_blank" rel="noopener">World Intellectual Property Report 2026: How Do New Technologies Diffuse?</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">WIPO</span>
+                <a href="https://www.wipo.int/web-publications/world-intellectual-property-report-2026/en/2-global-trends-of-technological-knowledge-diffusion.html" target="_blank" rel="noopener">Global Trends of Technological Knowledge Diffusion</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">WIPO</span>
+                <a href="https://www.wipo.int/web-publications/world-intellectual-property-report-2026/en/5-connect-adopt-absorb-digital-technology-diffusion.html" target="_blank" rel="noopener">Connect, Adopt, Absorb: Digital Technology Diffusion</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">IEA</span>
+                <a href="https://www.iea.org/reports/renewables-2025/renewable-electricity" target="_blank" rel="noopener">Renewables 2025: Renewable Electricity Analysis</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">IEA</span>
+                <a href="https://www.iea.org/reports/global-energy-review-2026/technology-solar-pv-and-wind" target="_blank" rel="noopener">Global Energy Review 2026: Solar PV and Wind</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">ITU</span>
+                <a href="https://www.itu.int/itu-d/reports/statistics/2025/11/17/gcr-2025-chapter-2/" target="_blank" rel="noopener">Global Connectivity Report 2025: Assessing Progress</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">ITU</span>
+                <a href="https://www.itu.int/dms_pub/itu-s/opb/pol/S-POL-BROADBAND.32-2025-PDF-E.pdf" target="_blank" rel="noopener">The State of Broadband in Africa 2025</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">Microsoft Research</span>
+                <a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/ai-economy-institute/reports/global-ai-adoption-2025/" target="_blank" rel="noopener">Global AI Adoption in 2025: A Widening Digital Divide</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">World Bank</span>
+                <a href="https://www.worldbank.org/en/publication/dptr2025-ai-foundations/report" target="_blank" rel="noopener">Strengthening AI Foundations: Emerging Opportunities for Developing Countries</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">DataReportal</span>
+                <a href="https://datareportal.com/reports/digital-2026-six-billion-internet-users" target="_blank" rel="noopener">Digital 2026: Internet Users Pass the 6 Billion Mark</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">World Economic Forum</span>
+                <a href="https://reports.weforum.org/docs/WEF_Four_Futures_for_the_New_Economy_Geoeconomics_and_Technology_in_2030_2025.pdf" target="_blank" rel="noopener">Four Futures for the New Economy: Geoeconomics and Technology in 2030</a>
+            </div>
+            <div class="source-item">
+                <span class="source-org">Precedence Research</span>
+                <a href="https://www.precedenceresearch.com/digital-payment-market" target="_blank" rel="noopener">Digital Payment Market Size to Hit USD 790.59 Bn by 2035</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+    <div class="section-container">
+        <p>Technology Diffusion in Emerging Economies &mdash; A Research Briefing &bull; Data current as of May 2026</p>
+        <p style="margin-top: 0.5rem;"><a href="https://github.com/Hunterhghs/Technology-Diffusion" target="_blank" rel="noopener">View on GitHub</a></p>
+    </div>
+</footer>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+(function() {
+    // Nav scroll effect
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+        links.classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    links.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => links.classList.remove('open'));
+    });
+
+    // Region tabs
+    document.querySelectorAll('.region-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.region-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.region-content').forEach(c => c.classList.remove('active'));
+            tab.classList.add('active');
+            document.querySelector(`.region-content[data-region="${tab.dataset.region}"]`).classList.add('active');
+        });
+    });
+
+    // Scroll reveal & bar animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Animate bars within this element
+                entry.target.querySelectorAll('.timeline-bar, .progress-fill, .divide-bar').forEach(bar => {
+                    setTimeout(() => bar.classList.add('animated'), 200);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Also observe non-reveal containers that have bars
+    document.querySelectorAll('.timeline-visual, .progress-section, .ai-divide-chart').forEach(el => {
+        const barObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.timeline-bar, .progress-fill, .divide-bar').forEach(bar => {
+                        setTimeout(() => bar.classList.add('animated'), 200);
+                    });
+                    barObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        barObserver.observe(el);
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+})();
+</script>
+
+</body>
+</html>
